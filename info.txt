@@ -1,0 +1,162 @@
+🥗 NutriLens – AI Food Recognition & Nutrition Tracker
+🔍 Problem
+
+One of the biggest challenges in maintaining a healthy lifestyle is accurately tracking food intake. Most existing calorie-tracking apps rely on manual input, which is time-consuming, error-prone, and discourages consistent usage.
+
+I wanted to build a system that could:
+
+Automatically identify food items from images
+Estimate nutritional values
+Reduce manual effort in tracking diet
+💡 Solution
+
+I built NutriLens — a mobile application that uses computer vision to detect Indian food items from images and estimate their nutritional content.
+
+⚙️ What I Did
+Developed a custom YOLOv8 model trained on Indian food datasets
+Created a dataset of 1100+ images using Roboflow and applied augmentation techniques
+Used transfer learning to improve model performance
+Achieved 89.4% mAP@50 accuracy, ensuring reliable predictions
+🏗️ System Architecture
+User captures image via mobile app
+Image sent to backend (Flask server)
+YOLO model processes image and detects food items
+Detected items mapped to calorie database
+Results returned and stored
+🧩 Backend & Features
+Firebase integration for user data
+Google OAuth authentication
+Streak tracking system
+Analytics dashboard for user insights
+🧠 Key Learnings
+Building ML systems is not just about models — data quality matters more
+Real-world accuracy requires iteration and tuning, not just training once
+Integrating ML with applications requires careful pipeline design
+📄 Citation Detection & Web Scraping System
+🔍 Problem
+
+With the rise of AI-generated responses, verifying the source of information has become increasingly important. Many responses reference sources, but there is no structured way to:
+
+Extract citations
+Match them to actual sources
+Retrieve them efficiently
+💡 Solution
+
+I built a backend system that:
+
+Scrapes web content
+Detects citations in responses
+Maps them to source URLs
+⚙️ What I Did
+Built backend using Node.js and Express
+Used Cheerio for web scraping
+Stored data in SQLite
+Designed RESTful APIs for querying citations
+🧠 Core Logic
+Extract structured content from HTML
+Identify citation patterns
+Match responses with stored references
+🧠 Key Learnings
+Web scraping requires handling inconsistent data structures
+Backend design is about data flow and clarity, not just endpoints
+Efficient querying matters when dealing with large datasets
+🏢 Enterprise Franchise Management System
+🔍 Problem
+
+Franchise businesses often struggle with:
+
+Tracking inventory
+Managing staff
+Monitoring sales
+Maintaining centralized control
+
+Most small-scale systems lack integration and scalability.
+
+💡 Solution
+
+I developed a full-stack system to manage:
+
+Sales
+Inventory
+Staff roles
+Authentication
+⚙️ What I Did
+Built using PHP + MySQL
+Designed relational database schema
+Implemented role-based access control
+Created dashboard for real-time monitoring
+🧠 Key Learnings
+Database design is critical for scalability
+Security (authentication & validation) is essential
+UI/UX impacts usability significantly
+📈 Cryptocurrency Prediction & Analysis System
+🔍 Problem
+
+Crypto markets are volatile and difficult to analyze for beginners. Most tools are either too complex or lack predictive insights.
+
+💡 Solution
+
+I built a system that:
+
+Predicts Bitcoin trends
+Provides visual insights
+Helps users understand market behavior
+⚙️ What I Did
+Implemented Random Forest model
+Performed feature engineering
+Created 20+ visualizations
+Built UI using Tkinter and Streamlit
+🧠 Key Learnings
+Predictions are only as good as features selected
+Visualization helps interpret complex data
+ML models require constant evaluation and tuning
+💻 Current Work
+
+I am currently working on:
+
+🧠 AI Image Catalog Processing System
+
+A system that:
+
+Processes large image datasets
+Uses AI for classification
+Organizes and retrieves images efficiently
+
+This project focuses on:
+
+scalability
+automation
+real-world usability
+🧠 Problem Solving & DSA
+
+I have solved 270+ DSA problems across topics like:
+
+Arrays
+Binary Search
+Hashing
+Trees
+Sliding Window
+Sorting
+
+My focus is shifting from quantity to:
+
+execution speed
+pattern recognition
+solving unseen problems
+🎯 What I’m Currently Improving
+Backend system design
+Writing cleaner and scalable APIs
+Improving DSA execution speed
+Learning system design fundamentals
+Strengthening DBMS and CN concepts
+🎨 Portfolio Website (What I Include)
+
+My portfolio is designed to reflect both technical depth and creativity:
+
+Sections:
+About Me
+Projects (with detailed case studies)
+Skills
+Resume
+GitHub
+Contact
