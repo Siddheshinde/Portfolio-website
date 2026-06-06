@@ -167,7 +167,6 @@ const STATIC_PROJECTS: Project[] = [
 ];
 
 export default function Projects() {
-  const { data, loading, error } = useApi(fetchProjects, []);
   const projects = STATIC_PROJECTS;
 
   return (
@@ -194,8 +193,7 @@ export default function Projects() {
 
       <section style={{ padding: '2rem 2rem 6rem' }}>
         <div style={{ maxWidth: 960, margin: '0 auto' }}>
-          {loading && !data && <LoadingSpinner fullPage />}
-          {error && !data && <ErrorMessage message="Could not load projects — showing cached data." />}
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
