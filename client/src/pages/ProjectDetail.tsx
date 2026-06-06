@@ -321,7 +321,7 @@ function IceCreamCaseStudy({ project }: { project: Project }) {
       desc: 'Deep, rich browns that evoke indulgence. The palette pairs dark cacao with caramel highlights to trigger emotional warmth and craving.',
       visual: (
         <div style={{ borderRadius: 16, overflow: 'hidden', position: 'relative', background: 'linear-gradient(135deg, #3B1C0C, #6B3A2A)' }}>
-          <img src="/icecream-images/icecream-1.png" alt="Chocolate flavour screen" style={{ width: '100%', display: 'block', objectFit: 'cover', minHeight: 280 }} />
+          <img src="/icecream-images/image-2.png" alt="Chocolate flavour screen" style={{ width: '100%', display: 'block', objectFit: 'cover', minHeight: 280 }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(59,28,12,0.7) 0%, transparent 50%)' }} />
           <div style={{ position: 'absolute', bottom: '1rem', left: '1.25rem' }}>
             <span style={{ backgroundColor: 'rgba(107,58,42,0.85)', border: '1px solid rgba(196,112,58,0.5)', color: '#F5DEB3', fontSize: '0.75rem', fontWeight: 700, padding: '4px 14px', borderRadius: 999, letterSpacing: '0.08em' }}>🍫 Chocolate World</span>
@@ -357,7 +357,7 @@ function IceCreamCaseStudy({ project }: { project: Project }) {
       desc: 'Vibrant berry pinks from deep crimson to soft blush. This palette feels fresh, playful, and irresistibly summery.',
       visual: (
         <div style={{ borderRadius: 16, overflow: 'hidden', position: 'relative', background: 'linear-gradient(135deg, #4A0018, #A0002A)' }}>
-          <img src="/icecream-images/image-2.png" alt="Strawberry flavour screen" style={{ width: '100%', display: 'block', objectFit: 'cover', minHeight: 280 }} />
+          <img src="/icecream-images/image-3.png" alt="Strawberry flavour screen" style={{ width: '100%', display: 'block', objectFit: 'cover', minHeight: 280 }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(74,0,24,0.7) 0%, transparent 50%)' }} />
           <div style={{ position: 'absolute', bottom: '1rem', left: '1.25rem' }}>
             <span style={{ backgroundColor: 'rgba(160,0,42,0.85)', border: '1px solid rgba(255,107,157,0.5)', color: '#FFD6E7', fontSize: '0.75rem', fontWeight: 700, padding: '4px 14px', borderRadius: 999, letterSpacing: '0.08em' }}>🍓 Strawberry World</span>
