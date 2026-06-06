@@ -168,7 +168,7 @@ const STATIC_PROJECTS: Project[] = [
 
 export default function Projects() {
   const { data, loading, error } = useApi(fetchProjects, []);
-  const projects = data ?? STATIC_PROJECTS;
+  const projects = STATIC_PROJECTS;
 
   return (
     <div style={{ paddingTop: 68, backgroundColor: '#1d1b18' }}>
