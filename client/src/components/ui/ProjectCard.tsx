@@ -2,90 +2,147 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import type { Project } from '@/types';
 
-interface Props {
+interface ProjectCardProps {
   project: Project;
 }
 
-export default function ProjectCard({ project }: Props) {
+export default function ProjectCard({ project }: ProjectCardProps) {
+  const isUXProject = project.tech.includes('Figma');
+
   return (
     <motion.div
-      whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(170,133,23,0.25)' }}
+      whileHover={{
+        y: -8,
+        boxShadow: '0 20px 40px rgba(170,133,23,0.25)',
+      }}
       transition={{ duration: 0.25 }}
       style={{
-        background: '#282621',
-        border: '1px solid rgba(255,193,7,0.15)',
-        borderRadius: 12,
+        backgroundColor: '#282621',
+        border: '1px solid rgba(255,193,7,0.2)',
+        borderRadius: 10,
         padding: '1.75rem',
         display: 'flex',
         flexDirection: 'column',
-        height: '100%',
-        position: 'relative',
-        overflow: 'hidden',
+        gap: '1rem',
+        cursor: 'pointer',
       }}
     >
-      {/* Gold top accent line */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: 'linear-gradient(90deg, #aa8517, transparent)' }} />
-
-      {/* Status badge */}
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
-        <span style={{
-          background: project.status === 'in-progress' ? 'rgba(255,149,0,0.15)' : 'rgba(170,133,23,0.15)',
-          color: project.status === 'in-progress' ? '#ff9500' : '#aa8517',
-          border: `1px solid ${project.status === 'in-progress' ? 'rgba(255,149,0,0.3)' : 'rgba(170,133,23,0.3)'}`,
-          borderRadius: 20,
-          padding: '2px 12px',
-          fontSize: 12,
-          fontWeight: 700,
-          letterSpacing: '0.5px',
-          textTransform: 'uppercase',
-        }}>
-          {project.status === 'in-progress' ? 'In Progress' : 'Completed'}
+      {/* Badges row */}
+      <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center' }}>
+        <span
+          style={{
+            display: 'inline-block',
+            padding: '0.2rem 0.7rem',
+            borderRadius: 999,
+            fontSize: '0.7rem',
+            fontFamily: "'Public Sans', sans-serif",
+            fontWeight: 700,
+            letterSpacing: '0.06em',
+            backgroundColor:
+              project.status === 'completed'
+                ? 'rgba(170,133,23,0.18)'
+                : 'rgba(255,149,0,0.15)',
+            color: project.status === 'completed' ? '#aa8517' : '#ff9500',
+            border: `1px solid ${
+              project.status === 'completed'
+                ? 'rgba(170,133,23,0.35)'
+                : 'rgba(255,149,0,0.3)'
+            }`,
+          }}
+        >
+          {project.status === 'completed' ? 'Completed' : 'In Progress'}
         </span>
+
+        {/* UX/UI badge — only for Figma / design projects */}
+        {isUXProject && (
+          <span
+            style={{
+              display: 'inline-block',
+              padding: '0.2rem 0.7rem',
+              borderRadius: 999,
+              fontSize: '0.68rem',
+              fontFamily: "'Public Sans', sans-serif",
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              backgroundColor: 'rgba(255,149,0,0.12)',
+              color: '#ff9500',
+              border: '1px solid rgba(255,149,0,0.3)',
+            }}
+          >
+            UX/UI
+          </span>
+        )}
       </div>
 
-      <h3 style={{ color: '#ff9500', fontWeight: 900, fontSize: 20, marginBottom: 8, fontFamily: "'Public Sans', sans-serif", lineHeight: 1.3 }}>
+      {/* Title */}
+      <h3
+        style={{
+          fontFamily: "'Public Sans', sans-serif",
+          fontWeight: 900,
+          fontSize: '1.25rem',
+          color: '#ff9500',
+          margin: 0,
+          lineHeight: 1.3,
+        }}
+      >
         {project.title}
       </h3>
-      <p style={{ color: '#f3e8d8', fontSize: 14, lineHeight: 1.6, marginBottom: '1.25rem', flex: 1 }}>
+
+      {/* Tagline */}
+      <p
+        style={{
+          fontFamily: "'Public Sans', sans-serif",
+          fontSize: '0.9rem',
+          color: '#fff4ca',
+          lineHeight: 1.65,
+          margin: 0,
+          flex: 1,
+        }}
+      >
         {project.tagline}
       </p>
 
       {/* Tech badges */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: '1.5rem' }}>
-        {project.tech.slice(0, 4).map((t) => (
-          <span key={t} style={{
-            background: '#1d1b18',
-            border: '1px solid rgba(255,193,7,0.2)',
-            color: '#ff9500',
-            borderRadius: 6,
-            padding: '2px 10px',
-            fontSize: 12,
-            fontWeight: 700,
-          }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+        {project.tech.slice(0, 5).map((t) => (
+          <span
+            key={t}
+            style={{
+              fontFamily: "'Public Sans', sans-serif",
+              fontWeight: 700,
+              fontSize: '0.7rem',
+              color: '#aa8517',
+              border: '1px solid rgba(170,133,23,0.35)',
+              backgroundColor: 'rgba(170,133,23,0.08)',
+              padding: '0.15rem 0.55rem',
+              borderRadius: 4,
+              letterSpacing: '0.03em',
+            }}
+          >
             {t}
           </span>
         ))}
-        {project.tech.length > 4 && (
-          <span style={{ color: '#aa8517', fontSize: 12, alignSelf: 'center' }}>+{project.tech.length - 4} more</span>
-        )}
       </div>
 
+      {/* CTA */}
       <Link
         to={`/projects/${project.slug}`}
         style={{
+          fontFamily: "'Public Sans', sans-serif",
+          fontWeight: 700,
+          fontSize: '0.85rem',
+          color: '#aa8517',
+          textDecoration: 'none',
           display: 'inline-flex',
           alignItems: 'center',
-          gap: 6,
-          color: '#aa8517',
-          fontWeight: 700,
-          fontSize: 14,
-          textDecoration: 'none',
+          gap: '0.3rem',
           transition: 'color 0.2s',
+          marginTop: '0.25rem',
         }}
-        onMouseOver={(e) => (e.currentTarget.style.color = '#ff9500')}
-        onMouseOut={(e) => (e.currentTarget.style.color = '#aa8517')}
+        onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = '#ff9500')}
+        onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = '#aa8517')}
       >
-        View Case Study →
+        {isUXProject ? 'View UX Case Study →' : 'View Case Study →'}
       </Link>
     </motion.div>
   );
